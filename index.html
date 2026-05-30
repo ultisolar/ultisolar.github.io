@@ -3,71 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UltiSolar / iSentrol 文档中心</title>
+    <title>文档中心</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-        .doc-list {
-            list-style: none;
-        }
-        .doc-item {
-            background: white;
-            margin-bottom: 0.8rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.2s ease;
-        }
-        .doc-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .doc-item a {
-            display: block;
-            padding: 1rem 1.2rem;
-            color: #2c3e50;
+        body { font-family: sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .links { margin-bottom: 20px; text-align: center; }
+        .links a {
+            display: inline-block;
+            margin: 5px;
+            padding: 6px 12px;
+            background: #007bff;
+            color: #fff;
             text-decoration: none;
-            font-size: 1rem;
+            border-radius: 4px;
         }
-        .doc-item a::before {
-            content: "📄 ";
-            margin-right: 0.5rem;
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
-    <h1>📚 产品文档中心</h1>
-    <ul class="doc-list">
-        <!-- 下面是你的PDF文件链接，按格式添加即可 -->
-        <li class="doc-item">
-            <a href="viewer.html?file=摩尔信使MThings产品白皮书.pdf" target="_blank">
-                摩尔信使MThings产品白皮书
-            </a>
-        </li>
-        <!-- 示例：第二个文件 -->
-        <!-- <li class="doc-item">
-            <a href="viewer.html?file=你的第二个文件.pdf" target="_blank">
-                你的第二个文件名称
-            </a>
-        </li> -->
-    </ul>
+    <h1>文档中心</h1>
+
+    <div class="links">
+        <a href="#" onclick="showPdf('摩尔信使MThings产品白皮书.pdf')">白皮书</a>
+        <a href="#" onclick="showPdf('第二个文件.pdf')">文档2</a>
+        <a href="#" onclick="showPdf('第三个文件.pdf')">文档3</a>
+    </div>
+
+    <iframe id="pdfFrame" src="摩尔信使MThings产品白皮书.pdf"></iframe>
+
+    <script>
+        function showPdf(file) {
+            document.getElementById('pdfFrame').src = file;
+            return false; // 不让页面跳转
+        }
+    </script>
 </body>
 </html>
