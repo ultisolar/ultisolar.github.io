@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF 预览</title>
     <style>
-        /* 重置默认边距和滚动条 */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
         }
-        /* iframe 占满整个窗口 */
         #pdf-viewer {
             width: 100%;
             height: 100%;
@@ -22,7 +20,16 @@
     </style>
 </head>
 <body>
-<!-- 确保 PDF 路径是相对路径，或者用 raw 链接 -->
-<iframe src="https://github.com/ultisolar/ultisolar.github.io/blob/71069d3293a6a07639c07bcf270bafaa02bafe59/%E6%91%A9%E5%B0%94%E4%BF%A1%E4%BD%BFMThings%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf" width="100%" height="100%"></iframe>
+    <script>
+        // 读取URL中的file参数
+        const params = new URLSearchParams(window.location.search);
+        const pdfFile = params.get('file') || '摩尔信使MThings产品白皮书.pdf';
+        
+        // 拼接PDF.js预览地址
+        const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(pdfFile)}`;
+        
+        // 写入iframe
+        document.write(`<iframe id="pdf-viewer" src="${viewerUrl}"></iframe>`);
+    </script>
 </body>
 </html>
